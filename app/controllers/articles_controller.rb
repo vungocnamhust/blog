@@ -14,14 +14,14 @@ class ArticlesController < ApplicationController
     end
 
     def create
-        article = Article.new(article_params)
+        @article = Article.new(article_params)
        
-        if article.save
-            redirect_to articlesShow_url(id: article.id)
+        if @article.save
+            redirect_to articlesShow_url(id: @article.id)
         else 
             render 'new'
         end
-        
+
       end
        
       private
