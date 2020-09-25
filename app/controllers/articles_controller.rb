@@ -16,8 +16,12 @@ class ArticlesController < ApplicationController
     def create
         article = Article.new(article_params)
        
-        article.save
-        redirect_to articlesShow_url(id: article.id)
+        if article.save
+            redirect_to articlesShow_url(id: article.id)
+        else 
+            render 'new'
+        end
+        
       end
        
       private
