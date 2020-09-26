@@ -25,7 +25,12 @@ class ArticlesController < ApplicationController
     end
 
     def new
+        @article = Article.new 
+        print "++++++++++++\n"
+        print "++++++++++++\n"
+        print "++++++++++++\n"
         @email = "vungocnam0409@gmail.com"
+        
     end
 
     def edit 
@@ -34,6 +39,18 @@ class ArticlesController < ApplicationController
 
     def create
         @article = Article.new(article_params)
+
+        print "++++++++++++\n"
+        print "++++++++++++\n"
+        print "++++++++++++\n"
+        print "++++++++++++\n"
+
+        if (@article == nil) 
+            puts "+++++++++ article === Nil"
+        else 
+            puts "++++++++++ article != Nil"
+        end
+
         if @article.save
             redirect_to articlesShow_url(id: @article.id)
         else 
