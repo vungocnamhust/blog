@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'articles/new'
   get 'articles/show',to:'articles#show',as: :articlesShow
   get 'articles/index',to:'articles#index',as: :articleIndex
+  get 'articles/find', to:'articles#find', as: :articleFind
   resources :articles do
     resources :comments
   end

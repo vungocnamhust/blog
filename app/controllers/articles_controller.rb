@@ -1,6 +1,7 @@
 class ArticlesController < ApplicationController 
     http_basic_authenticate_with name: "namvu", password: "secret", except: [:index, :show]
 
+
     def destroy
         @article = Article.find(params[:id])
         @article.destroy
@@ -18,7 +19,12 @@ class ArticlesController < ApplicationController
     end
 
     def index 
-        @articles = Article.all
+        searchValue = params[:search]
+        if (searchValue.blank?) 
+            @articles = Article.all
+        else 
+            @articles = Article.where("title LIKE ?", searchValue )
+        end
     end
 
     def show
