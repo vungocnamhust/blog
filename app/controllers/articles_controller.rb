@@ -19,11 +19,15 @@ class ArticlesController < ApplicationController
     end
 
     def index 
+        p "Index ++++++++++++++++\n"
+        p "Index ++++++++++++++++\n"
+        p "Index ++++++++++++++++\n"
+        p "Index ++++++++++++++++\n"
         searchValue = params[:search]
         if (searchValue.blank?) 
             @articles = Article.all
         else 
-            @articles = Article.where("title LIKE ?", searchValue )
+            @articles = Article.where("title LIKE ?", "%" + searchValue +"%")
         end
     end
 
@@ -40,6 +44,11 @@ class ArticlesController < ApplicationController
     end
 
     def create
+        p "Create ++++++++++++++++\n"
+        p "Create ++++++++++++++++\n"
+        p "Create ++++++++++++++++\n"
+        p "Create ++++++++++++++++\n"
+
         @article = Article.new(article_params)
 
         if @article.save
