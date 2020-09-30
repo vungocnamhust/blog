@@ -19,10 +19,6 @@ class ArticlesController < ApplicationController
     end
 
     def index 
-        p "Index ++++++++++++++++\n"
-        p "Index ++++++++++++++++\n"
-        p "Index ++++++++++++++++\n"
-        p "Index ++++++++++++++++\n"
         searchValue = params[:search]
         if (searchValue.blank?) 
             @articles = Article.all
@@ -44,11 +40,6 @@ class ArticlesController < ApplicationController
     end
 
     def create
-        p "Create ++++++++++++++++\n"
-        p "Create ++++++++++++++++\n"
-        p "Create ++++++++++++++++\n"
-        p "Create ++++++++++++++++\n"
-
         @article = Article.new(article_params)
 
         if @article.save
@@ -58,9 +49,9 @@ class ArticlesController < ApplicationController
         end
     end
        
-      private
+    private
         def article_params
           params.require(:article).permit(:title, :text)
-        end
+    end
 
 end
