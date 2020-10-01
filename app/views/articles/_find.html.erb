@@ -1,8 +1,10 @@
-<h2>Find Article</h2>
+<h4>Find Article</h4>
 
-<%= form_tag articles_path do %>
-        <div >
-            <%= text_field_tag :search %>
-        </div>
-        <%= submit_tag "Find Articles" %>
-    <% end %>
+<%= form_tag articles_path, method: 'post', :class => 'form-inline' do %>
+    
+    <div class="form-group">
+        <label for="usr">Title:</label>
+        <%= text_field_tag :search %>
+    </div>
+    <%= submit_tag "Find Articles" %>
+<% end %>
